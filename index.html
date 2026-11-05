@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Future me simulator</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+      <div>
+        <h1>Future<span>Me</span></h1>
+        <p>YOUR PERSONAL GROWTH SIMULATOR</p>
+      </div>
+    </div>
+    <button class="reset-btn" id="resetBtn">↺ Reset</button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">YOUR FUTURE STARTS TODAY</span>
+      <h2>Design the person<br />you want to <span>become.</span></h2>
+      <p>Small daily actions. Big long-term possibilities.</p>
+      <button class="primary-btn" id="simulateBtn">
+        Simulate my future <span>↗</span>
+      </button>
+    </div>
+    <div class="orbit">
+      <div class="orbit-ring ring-one"></div>
+      <div class="orbit-ring ring-two"></div>
+      <div class="orbit-core">YOU<br /><span>2.0</span></div>
+      <div class="orbit-dot dot-one"></div>
+      <div class="orbit-dot dot-two"></div>
+      <div class="orbit-dot dot-three"></div>
+      <div class="orbit-label">POTENTIAL<br />UNLOCKED</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">01 / YOUR ROUTINE</span>
+        <h2>Build your daily blueprint</h2>
+      </div>
+      <span class="live-badge"><span></span> LIVE SIMULATION</span>
+    </div>
+
+    <div class="workspace">
+      <div class="habit-panel panel">
+        <div class="panel-heading">
+          <div>
+            <h3>Your current routine</h3>
+            <p>Adjust the sliders to match your real day.</p>
+          </div>
+          <div class="avatar">ME</div>
+        </div>
+
+        <div class="habit">
+          <div class="habit-label">
+            <span class="habit-icon study">▤</span>
+            <div><strong>Focused study</strong><small>Learning & academics</small></div>
+            <strong class="value" id="studyValue">2 h</strong>
+          </div>
+          <input id="study" type="range" min="0" max="12" step="0.5" value="2" />
+          <div class="range-labels"><span>0 hours</span><span>12 hours</span></div>
+        </div>
+
+        <div class="habit">
+          <div class="habit-label">
+            <span class="habit-icon skill">⌘</span>
+            <div><strong>Skill building</strong><small>Coding & new skills</small></div>
+            <strong class="value" id="skillValue">1 h</strong>
+          </div>
+          <input id="skill" type="range" min="0" max="8" step="0.5" value="1" />
+          <div class="range-labels"><span>0 hours</span><span>8 hours</span></div>
+        </div>
+
+        <div class="habit">
+          <div class="habit-label">
+            <span class="habit-icon exercise">↗</span>
+            <div><strong>Exercise</strong><small>Movement & fitness</small></div>
+            <strong class="value" id="exerciseValue">0.5 h</strong>
+          </div>
+          <input id="exercise" type="range" min="0" max="4" step="0.5" value="0.5" />
+          <div class="range-labels"><span>0 hours</span><span>4 hours</span></div>
+        </div>
+
+        <div class="habit">
+          <div class="habit-label">
+            <span class="habit-icon sleep">☾</span>
+            <div><strong>Sleep</strong><small>Rest & recovery</small></div>
+            <strong class="value" id="sleepValue">7 h</strong>
+          </div>
+          <input id="sleep" type="range" min="3" max="12" step="0.5" value="7" />
+          <div class="range-labels"><span>3 hours</span><span>12 hours</span></div>
+        </div>
+
+        <div class="habit">
+          <div class="habit-label">
+            <span class="habit-icon distraction">◷</span>
+            <div><strong>Distracted screen time</strong><small>Unplanned scrolling</small></div>
+            <strong class="value" id="screenValue">3 h</strong>
+          </div>
+          <input id="screen" type="range" min="0" max="12" step="0.5" value="3" />
+          <div class="range-labels"><span>0 hours</span><span>12 hours</span></div>
+        </div>
+
+        <div class="total-time">
+          <span>Planned hours per day</span>
+          <strong id="totalTime">13.5 h</strong>
+        </div>
+        <p class="small-note">This is a habit tracker, not a strict 24-hour schedule.</p>
+      </div>
+
+      <div class="settings-panel">
+        <div class="panel target-panel">
+          <span class="eyebrow">YOUR MISSION</span>
+          <h3>Choose your horizon</h3>
+          <p>How far into your future do you want to look?</p>
+          <div class="horizon-options">
+            <button class="horizon" data-days="30">30 <small>DAYS</small></button>
+            <button class="horizon active" data-days="90">90 <small>DAYS</small></button>
+            <button class="horizon" data-days="365">365 <small>DAYS</small></button>
+          </div>
+          <div class="horizon-summary">
+            <span>Simulation period</span>
+            <strong id="horizonLabel">90 days</strong>
+          </div>
+        </div>
+
+        <div class="panel insight-panel">
+          <span class="insight-symbol">✧</span>
+          <span class="eyebrow">A LITTLE PERSPECTIVE</span>
+          <h3 id="insightTitle">Your time is your superpower.</h3>
+          <p id="insightText">Even one focused hour each day can add up to 90 hours of practice in 90 days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section results-section" id="results">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">02 / THE POSSIBILITIES</span>
+        <h2>Your future, visualized</h2>
+      </div>
+      <span class="result-caption">Based on your current routine</span>
+    </div>
+
+    <div class="score-grid">
+      <div class="score-card panel">
+        <span class="metric-label">FOCUSED STUDY</span>
+        <div class="metric-number"><strong id="studyTotal">180</strong><span>hrs</span></div>
+        <p id="studyCaption">Time invested in learning</p>
+        <div class="progress-track"><div id="studyBar" class="progress-fill purple"></div></div>
+      </div>
+      <div class="score-card panel">
+        <span class="metric-label">SKILL PRACTICE</span>
+        <div class="metric-number"><strong id="skillTotal">90</strong><span>hrs</span></div>
+        <p>Practice adds up over time</p>
+        <div class="progress-track"><div id="skillBar" class="progress-fill blue"></div></div>
+      </div>
+      <div class="score-card panel">
+        <span class="metric-label">EXERCISE</span>
+        <div class="metric-number"><strong id="exerciseTotal">45</strong><span>hrs</span></div>
+        <p>Movement time accumulated</p>
+        <div class="progress-track"><div id="exerciseBar" class="progress-fill green"></div></div>
+      </div>
+      <div class="score-card panel">
+        <span class="metric-label">HABIT BALANCE</span>
+        <div class="metric-number"><strong id="balanceScore">68</strong><span>/100</span></div>
+        <p id="balanceCaption">A starting point, not a grade</p>
+        <div class="progress-track"><div id="balanceBar" class="progress-fill orange"></div></div>
+      </div>
+    </div>
+
+    <div class="panel future-panel">
+      <div class="future-header">
+        <div>
+          <span class="eyebrow">YOUR TWO POSSIBLE PATHS</span>
+          <h3>Same you. Different habits.</h3>
+          <p>Compare your current routine with a small, adjustable improvement.</p>
+        </div>
+        <span class="future-icon">⟡</span>
+      </div>
+
+      <div class="comparison">
+        <div class="path">
+          <div class="path-title"><span class="path-dot current-dot"></span> Current routine</div>
+          <strong id="currentHours">270 hrs</strong>
+          <small>Study + skill practice</small>
+          <div class="progress-track"><div id="currentPathBar" class="progress-fill purple"></div></div>
+        </div>
+        <div class="path">
+          <div class="path-title"><span class="path-dot improved-dot"></span> Improved routine</div>
+          <strong id="improvedHours">360 hrs</strong>
+          <small>Study + skill practice</small>
+          <div class="progress-track"><div id="improvedPathBar" class="progress-fill green"></div></div>
+        </div>
+      </div>
+
+      <div class="improvement-note">
+        <span>↗</span>
+        <p id="improvementText">A small daily change can create more time for practice.</p>
+      </div>
+      <button class="secondary-btn" id="improveBtn">Try an improved routine ↗</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">03 / YOUR NEXT MOVE</span>
+        <h2>Your personal action plan</h2>
+      </div>
+    </div>
+    <div class="panel action-panel">
+      <div class="action-top">
+        <div class="action-icon">✦</div>
+        <div><h3 id="planTitle">Start with one small win</h3><p id="planIntro">Make your next day a little better than the last.</p></div>
+      </div>
+      <ul id="actionList" class="action-list"></ul>
+      <div class="plan-footer">
+        <span id="planProgress">0 of 3 completed</span>
+        <button class="primary-btn" id="savePlanBtn">Save my plan</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand footer-brand"><div class="brand-icon">✦</div><div><h1>Future<span>Me</span></h1><p>YOUR JOURNEY. YOUR CHOICES.</p></div></div>
+    <p>Small actions can add up. Your future is not predetermined.</p>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
